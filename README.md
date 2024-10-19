@@ -1,5 +1,5 @@
 
-
+npm install
 npm start
 
 
