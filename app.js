@@ -1,4 +1,6 @@
-const express = require('express');
+import express from 'express';
+import { getCompletion } from './gptcall.js';
+
 const app = express();
 const port = 3000;
 
@@ -9,18 +11,21 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-// New route to handle large string input and output
-app.post('/gptcall', (req, res) => {
+// New route to handle GPT API call
+app.post('/gptcall', async (req, res) => {
   const inputString = req.body.input;
   
   if (!inputString) {
     return res.status(400).json({ error: 'No input string provided' });
   }
 
-  // Process the input string (in this example, we're just reversing it)
-  const outputString = inputString.split('').reverse().join('');
-
-  res.json({ output: outputString });
+  try {
+    const outputString = await getCompletion(inputString);
+    res.json({ output: outputString });
+  } catch (error) {
+    console.error('Error processing request:', error);
+    res.status(500).json({ error: 'Error processing request' });
+  }
 });
 
 app.listen(port, () => {

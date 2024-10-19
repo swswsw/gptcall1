@@ -17,13 +17,14 @@ async function getCompletion(messageContent) {
       model: 'gpt-4o',
     });
 
-    console.log(completion.choices[0].message.content);
+    return completion.choices[0].message.content;
   } catch (error) {
     console.error('Error fetching completion:', error);
+    throw error;
   }
 }
 
-
+export { getCompletion };
 
 const businessDiscussion = `
 Emily: 
