@@ -1,8 +1,11 @@
 import OpenAI from 'openai';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const openai = new OpenAI({
   baseURL: 'https://api.red-pill.ai/v1',
-  apiKey: '<redpill-api-key>',
+  apiKey: process.env.REDPILL_API_KEY,
 });
 
 const PROMPT = "Generate a legal contract using the following text: ";
