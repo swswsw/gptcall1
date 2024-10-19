@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 
 const openai = new OpenAI({
   baseURL: 'https://api.red-pill.ai/v1',
-  apiKey: '<openai-api-key>',
+  apiKey: '<redpill-api-key>',
 });
 
 const PROMPT = "Generate a legal contract using the following text: ";
@@ -19,7 +19,6 @@ async function getCompletion(messageContent) {
     console.error('Error fetching completion:', error);
   }
 }
-
 
 
 
