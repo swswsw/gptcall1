@@ -14,14 +14,16 @@ app.get('/', (req, res) => {
 // New route to handle GPT API call
 app.post('/gptcall', async (req, res) => {
   const inputString = req.body.input;
-  
+  console.log("gptcall received input: ", inputString);
+
   if (!inputString) {
     return res.status(400).json({ error: 'No input string provided' });
   }
 
   try {
     const outputString = await getCompletion(inputString);
-    res.json({ output: outputString });
+    console.log("gptcall returned output: ", outputString);
+    res.send(outputString);
   } catch (error) {
     console.error('Error processing request:', error);
     res.status(500).json({ error: 'Error processing request' });
