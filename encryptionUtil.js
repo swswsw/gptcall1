@@ -35,8 +35,8 @@ function encryptPdf(inputFilePath, outputFilePath, password, callback) {
 }
 
 const myString = "Hello, this is a contract generated from GPT";
-const outputFilePath = 'contract.pdf';
-const encryptedFilePath = 'encrypted_contract.pdf';
+const outputFilePath = './public/contract.pdf';
+const encryptedFilePath = './public/encrypted_contract.pdf';
 const password = 'password';
 
 function outputEncryptedPdf(str) {
