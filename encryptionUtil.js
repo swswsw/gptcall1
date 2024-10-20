@@ -37,7 +37,20 @@ function encryptPdf(inputFilePath, outputFilePath, password, callback) {
 const myString = "Hello, this is a contract generated from GPT";
 const outputFilePath = './public/contract.pdf';
 const encryptedFilePath = './public/encrypted_contract.pdf';
-const password = 'password';
+let password = 'password';
+
+function generateEncryptionKey() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let key = '';
+  for (let i = 0; i < 12; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    key += characters[randomIndex];
+  }
+  console.log('Encryption Key:', key);
+  return key;
+}
+  
+password = generateEncryptionKey();
 
 function outputEncryptedPdf(str) {
     createPdfFromString(str, outputFilePath, () => {
@@ -46,7 +59,7 @@ function outputEncryptedPdf(str) {
           
         });
       });
-    return encryptedFilePath;
+    return password;
 }
 
 export { outputEncryptedPdf };
