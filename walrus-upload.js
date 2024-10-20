@@ -50,6 +50,6 @@ export async function uploadFile(filePath, basePublisherUrl, numEpochs) {
 // Default configuration parameters
 export const defaultConfig = {
     filePath: './public/encrypted_contract.pdf',
-    basePublisherUrl: 'https://walrus-testnet-publisher.stakin-nodes.com',
+    basePublisherUrl: 'http://publisher.testnet.sui.rpcpool.com:9001',
     numEpochs: 100
 };

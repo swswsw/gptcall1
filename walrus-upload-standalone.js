@@ -36,7 +36,7 @@ async function uploadFile(filePath, basePublisherUrl, numEpochs) {
 
 // Configuration parameters
 const filePath = './public/encrypted_contract.pdf';  // Upload encrypted.pdf here
-const basePublisherUrl = 'https://walrus-testnet-publisher.stakin-nodes.com'; 
+const basePublisherUrl = 'http://publisher.testnet.sui.rpcpool.com:9001'; 
 const numEpochs = 100;  // Needs to be 100. 1 throws error
 
 // Call the upload function
