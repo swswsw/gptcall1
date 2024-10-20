@@ -8,7 +8,7 @@ document.head.appendChild(script);
 let contractABI = null;
 let contractBytecode = null;
 
-const contractAddress = '0x68555eEa4dfddbdcf4119872094ca384E04Ae9b7';  // Ensure this is the correct contract address
+const contractAddress = '0xBd3e8D8Fb9697453fe0cA1824EF22d98aeB82C1c';  // Ensure this is the correct contract address
 let contractAddressNum = document.getElementById('contractAddress');
 
 contractAddressNum.textContent = 'Contract Address: ' + contractAddress;
