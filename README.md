@@ -1,5 +1,11 @@
+this is one of the github repository.
+the other one is https://github.com/swswsw/contractbot1 (for XMTP bot)
+
+
+
 
 npm install
+
 npm start
 
 
