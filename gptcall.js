@@ -8,7 +8,7 @@ const openai = new OpenAI({
   apiKey: process.env.REDPILL_API_KEY,
 });
 
-const PROMPT = "Generate a legal contract using the following text: ";
+const PROMPT = "Generate a legal contract using the following text. Include nothing else but a generated contract: ";
 
 async function getCompletion(messageContent) {
   try {
