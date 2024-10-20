@@ -11,7 +11,7 @@ let contractBytecode = null;
 const contractAddress = '0xBd3e8D8Fb9697453fe0cA1824EF22d98aeB82C1c';  // Ensure this is the correct contract address
 let contractAddressNum = document.getElementById('contractAddress');
 
-contractAddressNum.textContent = 'Contract Address: ' + contractAddress;
+// contractAddressNum.textContent = 'Contract Address: ' + contractAddress;
 
 async function loadContractData() {
     try {
