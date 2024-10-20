@@ -1,5 +1,5 @@
 import fs from 'fs';
-import fetch from 'node-fetch';
+import fetch from 'node-fetch';// Ensure node-fetch is installed: npm install node-fetch
 
 /**
  * Function to upload a file to Walrus using the /v1/store endpoint.
@@ -7,9 +7,8 @@ import fetch from 'node-fetch';
  * @param {string} filePath - The path to the file to upload.
  * @param {string} basePublisherUrl - The base URL of the Walrus publisher.
  * @param {number} numEpochs - Number of epochs for storage.
- * @returns {Promise<Object|null>} The result of the upload or null if an error occurred.
  */
-export async function uploadFile(filePath, basePublisherUrl, numEpochs) {
+async function uploadFile(filePath, basePublisherUrl, numEpochs) {
     try {
         const inputFile = fs.readFileSync(filePath);  // Read the file content
         const fileName = filePath.split('/').pop();   // Extract the file name
@@ -27,14 +26,11 @@ export async function uploadFile(filePath, basePublisherUrl, numEpochs) {
         if (response.ok) {
             const result = await response.json();
             console.log('File uploaded successfully:', result);
-            return result;
         } else {
             console.error('Failed to upload the file. HTTP status:', response.status);
-            return null;
         }
     } catch (error) {
         console.error('Error uploading file:', error);
-        return null;
     }
 }
 
@@ -44,12 +40,4 @@ const basePublisherUrl = 'https://publisher.walrus-testnet.walrus.space';
 const numEpochs = 100;  // Needs to be 100. 1 throws error
 
 // Call the upload function
-//uploadFile(filePath, basePublisherUrl, numEpochs);
-
-
-// Default configuration parameters
-export const defaultConfig = {
-    filePath: './public/encrypted_contract.pdf',
-    basePublisherUrl: 'https://publisher.walrus-testnet.walrus.space',
-    numEpochs: 100
-};
+uploadFile(filePath, basePublisherUrl, numEpochs);

@@ -49,6 +49,28 @@ app.get('/encryptpdf', async (req, res) => {
   }
 });
 
+import { uploadFile, defaultConfig } from './walrus-upload.js';
+
+app.get('/walrus-upload', async (req, res) => {
+  try {
+    const result = await uploadFile(
+      defaultConfig.filePath,
+      defaultConfig.basePublisherUrl,
+      defaultConfig.numEpochs
+    );
+    
+    if (result) {
+      res.json({ success: true, data: result });
+    } else {
+      res.status(500).json({ success: false, error: 'File upload failed' });
+    }
+  } catch (error) {
+    console.error('Error in Walrus upload:', error);
+    res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+});
+
+
 app.listen(port, () => {
   console.log(`Express app listening at http://localhost:${port}`);
 });
