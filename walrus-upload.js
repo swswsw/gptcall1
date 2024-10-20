@@ -39,9 +39,9 @@ export async function uploadFile(filePath, basePublisherUrl, numEpochs) {
 }
 
 // Configuration parameters
-const filePath = './public/encrypted_contract.pdf';  // Upload encrypted.pdf here
-const basePublisherUrl = 'https://publisher.walrus-testnet.walrus.space'; 
-const numEpochs = 100;  // Needs to be 100. 1 throws error
+// const filePath = './public/encrypted_contract.pdf';  // Upload encrypted.pdf here
+// const basePublisherUrl = 'https://walrus-testnet-publisher.stakin-nodes.com'; 
+// const numEpochs = 100;  // Needs to be 100. 1 throws error
 
 // Call the upload function
 //uploadFile(filePath, basePublisherUrl, numEpochs);
@@ -50,6 +50,6 @@ const numEpochs = 100;  // Needs to be 100. 1 throws error
 // Default configuration parameters
 export const defaultConfig = {
     filePath: './public/encrypted_contract.pdf',
-    basePublisherUrl: 'https://publisher.walrus-testnet.walrus.space',
+    basePublisherUrl: 'https://walrus-testnet-publisher.stakin-nodes.com',
     numEpochs: 100
 };
